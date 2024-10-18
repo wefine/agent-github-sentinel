@@ -167,3 +167,4 @@ src/jupyter/*.md
 src/jupyter/daily_progress/*
 
 .idea
+.env

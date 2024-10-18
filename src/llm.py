@@ -1,12 +1,18 @@
 import os
 import json
+
+import httpx
 from openai import OpenAI  # 导入OpenAI库用于访问GPT模型
 from logger import LOG  # 导入日志模块
+
 
 class LLM:
     def __init__(self):
         # 创建一个OpenAI客户端实例
-        self.client = OpenAI()
+        self.client = OpenAI(
+            api_key=os.environ['OPENAI_API_KEY'],
+            http_client=httpx.Client(proxies=os.environ['HTTP_PROXY'])
+        )
         # 从TXT文件加载提示信息
         with open("prompts/report_prompt.txt", "r", encoding='utf-8') as file:
             self.system_prompt = file.read()
@@ -31,7 +37,7 @@ class LLM:
 
         # 日志记录开始生成报告
         LOG.info("Starting report generation using GPT model.")
-        
+
         try:
             # 调用OpenAI GPT模型生成报告
             response = self.client.chat.completions.create(
