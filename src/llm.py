@@ -1,7 +1,6 @@
 import os
 import json
 
-import httpx
 from openai import OpenAI  # 导入OpenAI库用于访问GPT模型
 from logger import LOG  # 导入日志模块
 
@@ -11,7 +10,6 @@ class LLM:
         # 创建一个OpenAI客户端实例
         self.client = OpenAI(
             api_key=os.environ['OPENAI_API_KEY'],
-            http_client=httpx.Client(proxies=os.environ['HTTP_PROXY'])
         )
         # 从TXT文件加载提示信息
         with open("prompts/report_prompt.txt", "r", encoding='utf-8') as file:
