@@ -166,3 +166,12 @@ daily_progress/*
 src/jupyter/*.md
 src/jupyter/daily_progress/*
 run/*
+
+.idea
+.env
+.vscode
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+

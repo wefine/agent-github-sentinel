@@ -1,3 +1,7 @@
+import os
+from dotenv import load_dotenv, find_dotenv
+_ = load_dotenv(find_dotenv())
+
 import gradio as gr  # 导入gradio库用于创建GUI
 
 from config import Config  # 导入配置管理模块
