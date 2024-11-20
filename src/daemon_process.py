@@ -17,7 +17,7 @@ def graceful_shutdown(signum, frame):
     LOG.info("[优雅退出]守护进程接收到终止信号")
     sys.exit(0)  # 安全退出程序
 
-def github_job(subscription_manager, github_client, report_generator, notifier, days):
+def hackernews_job(subscription_manager, github_client, report_generator, notifier, days):
     LOG.info("[开始执行定时任务]")
     subscriptions = subscription_manager.list_subscriptions()  # 获取当前所有订阅
     LOG.info(f"订阅列表：{subscriptions}")

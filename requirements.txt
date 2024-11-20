@@ -6,3 +6,7 @@ schedule
 markdown2
 
 python-dotenv
+requests
+beautifulsoup4
+langchain
+langchain-openai
